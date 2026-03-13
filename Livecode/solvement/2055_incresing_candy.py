@@ -19,7 +19,32 @@ sys.stdin = open("input.txt", "r")
 # A를 B 보다 작을 때 까지 하나 씩 먹자(빼자)
 # 최악의 경우 (3000, 3000, 3)
 # 2999 + 2998 
-# 모든 경우의 수를 다본다 (3000 X 3000 : 괜찮다 시간적으로)
+# 모든 경우의 수를 다본다 (3000 X 3000 )
+# - 시간초과 발생
 
 # 2. 규칙을 세우자
 # B = C - 1 A = B - 1 로 만들면 된다
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    A, B, C = map(int, input().split())
+# 1. 문제 조건이 불가능한 케이스
+    if B < 2 or C < 3:
+        print(f'#{tc} -1')
+        continue
+
+
+
+# 2.B = C - 1 A = B - 1 로 만들면 된다
+    eat_count = 0
+
+# B 상자
+if B >= C:
+    eat_count += B - (C - 1) # 높이의 차이 +1 만큼 먹는다
+    B = (C - 1)
+
+if A >= C:
+    eat_count += A - (B - 1) # 높이의 차이 +1 만큼 먹는다
+    A = (B - 1)
+

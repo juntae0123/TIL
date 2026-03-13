@@ -31,8 +31,10 @@ for tc in range(1, 1 + T):
         for prev_start, prev_end in wires:
             # 1.기존의 선보다 시작점은 높고 도착점은 낮다
             if start > prev_start and end < prev_end:
-                answer +=1
+                answer += 1
             if start < prev_start and end > prev_end:
-            
+                answer += 1
         # 기존 목록에 start, end 추가
         wires.append((start, end))
+
+    print(f'#{tc} {answer}')
