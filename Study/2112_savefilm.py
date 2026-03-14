@@ -85,8 +85,27 @@ T = int(input())
 for tc in range(1, 1 + T):
     D, W, K = map(int, input().split())
     board = [list(map(int, input().split())) for _ in range(D)]
-
+    
+    # 최악의 경우 K개 행만 바꾸면 무조건 가능
     min_drug = K
+
     dfs(0, 0)
 
     print(f'#{tc} {min_drug}')
+'''
+
+T = int(input())
+for tc in range(1, T + 1):
+    D, W, K = map(int, input().split())
+    board = [list(map(int, input().split())) for _ in range(D)]
+
+    min_drug = K
+
+    # 바로 통과하는 경우 처리
+    if K == 1 or check(board):
+        min_drug = 0
+    else:
+        dfs(0, 0)
+
+    print(f'#{tc} {min_drug}')
+'''
