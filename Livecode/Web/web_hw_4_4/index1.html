@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소셜 커머스 페이지</title>
+
+  <!-- Bootstrap CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .category-box {
+      background-color: white;
+      border: 1px solid #dee2e6;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      height: 100%;
+    }
+
+    .category-box ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    .category-box li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .category-box li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+
+    <!-- 상단 영역 -->
+    <div class="row g-4 mb-5">
+
+      <!-- 주목 상품 -->
+      <div class="col-12 col-lg-9">
+        <h2 class="section-title">주목 상품</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="주목 상품 1">
+              <div class="card-body">
+                <h5 class="card-title">프리미엄 무선 이어폰</h5>
+                <p class="card-text">고음질 사운드와 편리한 노이즈 캔슬링 기능을 제공합니다.</p>
+                <a href="#" class="btn btn-primary">구매하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="주목 상품 2">
+              <div class="card-body">
+                <h5 class="card-title">스마트 워치</h5>
+                <p class="card-text">운동 기록, 건강 관리, 알림 기능까지 한 번에 확인할 수 있습니다.</p>
+                <a href="#" class="btn btn-primary">구매하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100">
+              <img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="주목 상품 3">
+              <div class="card-body">
+                <h5 class="card-title">휴대용 블루투스 스피커</h5>
+                <p class="card-text">작지만 강력한 출력으로 어디서나 음악을 즐길 수 있습니다.</p>
+                <a href="#" class="btn btn-primary">구매하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 카테고리 -->
+      <div class="d-none d-lg-block col-lg-3">
+        <h2 class="section-title">카테고리</h2>
+        <div class="category-box">
+          <ul>
+            <li>디지털 기기</li>
+            <li>가전 제품</li>
+            <li>패션</li>
+            <li>식품</li>
+            <li>생활용품</li>
+            <li>스포츠 / 레저</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 영역 -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- 인기 상품 -->
+      <div class="col-12 col-md-10 col-lg-4">
+        <h2 class="section-title">인기 상품</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=4" class="card-img-top" alt="인기 상품 1">
+              <div class="card-body">
+                <h5 class="card-title">인기 상품 1</h5>
+                <p class="card-text">많은 고객들이 선택한 베스트셀러 상품입니다.</p>
+                <a href="#" class="btn btn-outline-primary">구매하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=5" class="card-img-top" alt="인기 상품 2">
+              <div class="card-body">
+                <h5 class="card-title">인기 상품 2</h5>
+                <p class="card-text">실속 있는 가격과 뛰어난 만족도를 자랑합니다.</p>
+                <a href="#" class="btn btn-outline-primary">구매하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 신상품 -->
+      <div class="col-12 col-md-10 col-lg-4">
+        <h2 class="section-title">신상품</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=6" class="card-img-top" alt="신상품 1">
+              <div class="card-body">
+                <h5 class="card-title">신상품 1</h5>
+                <p class="card-text">새롭게 출시된 최신 트렌드 상품을 만나보세요.</p>
+                <a href="#" class="btn btn-outline-success">구매하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=7" class="card-img-top" alt="신상품 2">
+              <div class="card-body">
+                <h5 class="card-title">신상품 2</h5>
+                <p class="card-text">최신 기능과 세련된 디자인을 모두 담았습니다.</p>
+                <a href="#" class="btn btn-outline-success">구매하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 특별할인 -->
+      <div class="col-12 col-md-10 col-lg-4">
+        <h2 class="section-title">특별할인</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=8" class="card-img-top" alt="특별할인 1">
+              <div class="card-body">
+                <h5 class="card-title">특별할인 1</h5>
+                <p class="card-text">한정 기간 동안 특별한 가격으로 구매할 수 있습니다.</p>
+                <a href="#" class="btn btn-outline-danger">구매하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card">
+              <img src="https://picsum.photos/400/250?random=9" class="card-img-top" alt="특별할인 2">
+              <div class="card-body">
+                <h5 class="card-title">특별할인 2</h5>
+                <p class="card-text">할인율이 높은 인기 상품을 지금 바로 확인해보세요.</p>
+                <a href="#" class="btn btn-outline-danger">구매하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
