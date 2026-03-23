@@ -1,0 +1,8 @@
+*.ppt
+*.pptx
+*.zip
+*.mp4
+*.mov
+*.avi
+.DS_Store
+Thumbs.db
