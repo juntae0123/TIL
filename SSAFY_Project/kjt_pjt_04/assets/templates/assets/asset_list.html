@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<<<<<<< HEAD
+    <title>자산 목록</title>
+    <style>
+        .asset-card { border: 1px solid #ddd; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+        .asset-card h2 { margin: 0 0 8px; }
+        .asset-card p { margin: 4px 0; }
+    </style>
+</head>
+<body>
+    <h1>자산 목록</h1>
+
+    {% if assets %}
+        {% for asset in assets %}
+            <div class="asset-card">
+                <h2><a href="{% url 'assets:asset_detail' asset.id %}">{{ asset.name }}</a></h2>
+                <p><strong>카테고리:</strong> {{ asset.category }}</p>
+                <p>{{ asset.description }}</p>
+                <p><strong>위험 수준:</strong> {{ asset.risk_level }}</p>
+                <p><strong>게시글 수:</strong> {{ asset.post_count }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>등록된 자산이 없습니다.</p>
+    {% endif %}
+</body>
+</html>
+=======
+    <title>금융 자산 목록</title>
+</head>
+<body>
+    <h1>금융 자산 목록</h1>
+    
+    <div class="asset-container">
+        {% for asset in assets %}
+            <div class="asset-card" style="border: 1px solid #ccc; margin-bottom: 10px; padding: 10px;">
+                <h2>{{ asset.name }} <small>({{ asset.id }})</small></h2>
+                
+                <p>{{ asset.description }}</p>
+                <p>위험도: {{ asset.risk_level }}</p>
+                
+                <a href="{% url 'assets:asset_detail' asset.id %}">토론 게시판으로 이동</a>
+            </div>
+        {% empty %}
+            <p>자산 데이터가 존재하지 않습니다.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+>>>>>>> master

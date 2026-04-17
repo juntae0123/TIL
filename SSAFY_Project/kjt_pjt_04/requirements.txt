@@ -1,0 +1,10 @@
+# [requirements.txt] Refactored for cross-platform compatibility
+pandas==2.2.1
+numpy==1.26.4
+requests==2.31.0
+jupyter==1.0.0
+ipykernel==6.29.3
+python-dotenv==1.0.1
+django==4.2.11
+djangorestframework==3.14.0
+django-cors-headers==4.3.1

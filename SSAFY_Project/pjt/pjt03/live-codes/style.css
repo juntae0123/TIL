@@ -1,0 +1,84 @@
+* {
+  font-family: "Bitcount Prop Double Ink", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0,
+    "SZP1" 0,
+    "SZP2" 0,
+    "XPN1" 0,
+    "XPN2" 0,
+    "YPN1" 0,
+    "YPN2" 0;
+}
+
+.frontpage,
+.my-intro,
+.skills,
+.projects,
+.contact {
+  height: 200px;
+}
+
+.frontpage,
+.skills,
+.contact {
+  background-color: lightgray;
+}
+
+/* max: 최대 ~까지 (이하) */
+/* min: 최소 ~부터 (이상) */
+@media screen and (max-width: 500px) {
+  .frontpage {
+    background-color: red;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .frontpage {
+    background-color: orange;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .frontpage {
+    background-color: yellow;
+  }
+}
+
+/* 상호작용 */
+.intro-button:hover {
+  background-color: red;
+  /* transform: scale(1.5); */
+}
+
+
+.intro-button {
+  transition: transform 0.6s ease;
+}
+
+.intro-button:active {
+  background-color: green;
+  transform: rotate(7200deg);
+}
+
+.intro-text {
+  font-size: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(40);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}

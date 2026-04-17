@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if post %}게시글 수정{% else %}게시글 작성{% endif %}</title>
+    <style>
+        .error-box { border: 1px solid #f5c2c7; background: #f8d7da; color: #842029; padding: 12px; margin-bottom: 16px; border-radius: 6px; }
+        .form-group { margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <h1>{% if post %}게시글 수정{% else %}게시글 작성{% endif %}</h1>
+    <p>자산: {{ asset.name }}</p>
+
+    {% if form.non_field_errors %}
+        <div class="error-box">
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">제목</label><br>
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_content">내용</label><br>
+            {{ form.content }}
+            {{ form.content.errors }}
+        </div>
+        <div class="form-group">
+            <label for="id_author">작성자</label><br>
+            {{ form.author }}
+            {{ form.author.errors }}
+        </div>
+        <button type="submit">저장</button>
+    </form>
+
+    <p><a href="{% if post %}{% url 'assets:post_detail' asset.asset_id post.pk %}{% else %}{% url 'assets:asset_detail' asset.asset_id %}{% endif %}">돌아가기</a></p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ asset.name }}</title>
+    <style>
+        .asset-card { border: 1px solid #ddd; padding: 16px; border-radius: 8px; margin-bottom: 24px; background: #f9f9f9; }
+        .post-item { border: 1px solid #eee; padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+        .post-item a { font-size: 1.1rem; font-weight: bold; color: #333; text-decoration: none; }
+        .post-meta { color: #666; font-size: 0.95rem; margin-top: 6px; }
+        .button { display: inline-block; padding: 10px 14px; border-radius: 6px; background: #007bff; color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>{{ asset.name }}</h1>
+    <div class="asset-card">
+        <p><strong>자산 코드:</strong> {{ asset.id }}</p>
+        <p><strong>자산 이름:</strong> {{ asset.name }}</p>
+        <p><strong>카테고리:</strong> {{ asset.category }}</p>
+        <p><strong>위험 수준:</strong> {{ asset.risk_level }}</p>
+        <p>{{ asset.description }}</p>
+    </div>
+
+    <p><a class="button" href="{% url 'assets:post_create' asset.asset_id %}">글쓰기</a></p>
+
+    {% if posts %}
+        <div>
+            {% for post in posts %}
+                <div class="post-item">
+                    <a href="{% url 'assets:post_detail' asset.asset_id post.pk %}">{{ post.title }}</a>
+                    <div class="post-meta">
+                        작성자: {{ post.author }} · 작성일: {{ post.created_at|date:'Y-m-d H:i' }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>이 자산에는 게시글이 없습니다.</p>
+    {% endif %}
+
+    <p><a href="{% url 'assets:asset_list' %}">자산 목록으로 돌아가기</a></p>
+</body>
+</html>

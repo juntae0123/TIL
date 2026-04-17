@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background-color: gray;
+      margin: 50px;
+      padding: 50px;
+    }
+
+    .inline-box {
+      /* block: 마진 상쇄가 발생할 수 있다. */
+      /* display: block; */
+      
+      /* inline-block: 마진 상쇄 없음 */
+      display: inline-block;      
+    }
+
+  </style>
+</head>
+<body>
+  <!-- div 하나 span 하나를 순서대로 -->
+  <!-- div+span -->
+  <!-- 예시) div 태그 5개를 만들건데
+   내부에는 p 태그를 하나씩 -->
+  <!-- (div>p)*5 -->
+  
+  <!-- div.box -->
+  <div class="box">div 태그</div>
+  <span class="box inline-box">span 태그</span>
+
+</body>
+</html>
