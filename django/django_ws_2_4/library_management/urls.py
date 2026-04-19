@@ -1,8 +1,7 @@
-"""
-URL configuration for my_pjt project.
+"""library_management URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from my_app import views
-
+from libraries import views
+from bestseller import views as best_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
+    path('', views.index),
+    path('recommend', views.recommend),
+    path('bestseller/', best_views.bestseller, name='bestseller'),
 ]
