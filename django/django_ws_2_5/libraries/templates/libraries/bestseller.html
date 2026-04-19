@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"><title>베스트 셀러</title>
+    <style>
+        .rank-1 { background-color: #ffebee; } /* 1위: 연빨강 */
+        .rank-2 { background-color: #e8eaf6; } /* 2위: 연파랑 */
+        .rank-3 { background-color: #e8f5e9; } /* 3위: 연초록 */
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'libraries:index' %}">Home</a> | 
+        <a href="{% url 'libraries:recommend' %}">Recommend</a> | 
+        <a href="{% url 'libraries:bestseller' %}">BestSeller</a>
+    </nav>
+    <hr>
+    <h1>베스트 셀러 목록</h1>
+    {% for book in books %}
+        <div class="{% if forloop.counter == 1 %}rank-1{% elif forloop.counter == 2 %}rank-2{% elif forloop.counter == 3 %}rank-3{% endif %}" 
+             style="margin-bottom: 10px; padding: 15px; border: 1px solid #ccc;">
+            <h2>{{ forloop.counter }}위: {{ book.title }}</h2>
+            <p>저자: {{ book.author }}</p>
+            <p>설명: {{ book.bestRank }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

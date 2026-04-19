@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>신간 추천</title></head>
+<body>
+    <nav>
+        <a href="{% url 'libraries:index' %}">Home</a> | 
+        <a href="{% url 'libraries:recommend' %}">Recommend</a> | 
+        <a href="{% url 'libraries:bestseller' %}">BestSeller</a>
+    </nav>
+    <hr>
+    <h1>주목할 만한 신간 도서 목록</h1>
+    {% for book in books %}
+        <div style="margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #ddd;">
+            <h3>{{ book.title }}</h3>
+            <p style="color: gray;">저자: {{ book.author }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
