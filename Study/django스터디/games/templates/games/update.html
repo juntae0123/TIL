@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ game.title }} 수정 - GameLog{% endblock %} {# 게임 정보 수정 페이지 제목 설정 (사이트명과 함께) #}
+
+{% block content %}
+<div class="form-container">
+    <h1>🎮 게임 정보 수정</h1>
+    <p class="subtitle">{{ game.title }}</p>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            {% if form.title.errors %}
+                <ul class="error-list">
+                    {% for error in form.title.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.genre.label_tag }}
+            {{ form.genre }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group half">
+                {{ form.release_date.label_tag }}
+                {{ form.release_date }}
+            </div>
+            
+            <div class="form-group half">
+                {{ form.metacritic_score.label_tag }}
+                {{ form.metacritic_score }}
+            </div>
+        </div>
+        
+        <div class="form-group">
+            {{ form.cover_image.label_tag }}
+            
+            {% if game.cover_image %}
+                <div class="current-image">
+                    <p>현재 이미지:</p>
+                    <img src="{{ game.cover_image.url }}" alt="현재 커버" width="150">
+                </div>
+            {% endif %}
+            
+            {{ form.cover_image }}
+            <small class="help-text">새 이미지를 업로드하면 기존 이미지가 교체됩니다.</small>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">수정</button>
+            <a href="{% url 'games:detail' pk=game.pk %}" class="btn btn-secondary">취소</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

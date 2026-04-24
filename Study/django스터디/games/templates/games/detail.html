@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ game.title }} - GameLog{% endblock %}
+{# 게임 상세 페이지 제목 설정 (게임 제목 + 사이트명) #}
+
+{% block content %}
+<article class="game-detail">
+    <!-- 게임 정보 섹션 -->
+    <div class="game-header">
+        <div class="game-cover">
+            {% if game.cover_image %}
+                <img src="{{ game.cover_image.url }}" alt="{{ game.title }}">
+                {# 게임 커버 이미지 표시 (이미지 URL 사용) #}
+            {% else %}
+                <div class="no-image-large">🎮</div>
+            {% endif %}
+        </div>
+        
+        <div class="game-meta">
+            <h1>{{ game.title }}</h1>
+            
+            <dl class="meta-list">
+                <dt>장르</dt>
+                <dd>{{ game.genre }}</dd>
+                
+                <dt>출시일</dt>
+                <dd>{{ game.release_date|date:"Y년 m월 d일"|default:"미정" }}</dd>
+                
+                {% if game.metacritic_score %}
+                    <dt>메타크리틱</dt> # 메타크리틱 점수가 있을 때만 표시  
+                    <dd>
+                        <span class="score-badge">{{ game.metacritic_score }}점</span>
+                    </dd>
+                {% endif %}
+            </dl>
+            
+            {% if game.description %}
+                <div class="description">
+                    <h3>게임 소개</h3>
+                    <p>{{ game.description|linebreaks }}</p>
+                </div>
+            {% endif %}
+            
+            <!-- 수정/삭제 버튼 (로그인 시) -->
+            {% if user.is_authenticated %}
+                <div class="action-buttons">
+                    <a href="{% url 'games:update' pk=game.pk %}" class="btn btn-secondary">
+                        수정
+                    </a>
+                    <form action="{% url 'games:delete' pk=game.pk %}" method="POST" class="inline-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제하시겠습니까?');">
+                            삭제
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</article>
+
+<!-- 리뷰 섹션 -->
+<section class="reviews-section">
+    <h2>📝 리뷰 ({{ reviews.count }}개)</h2>
+    
+    <!-- 리뷰 작성 폼 (로그인 시) -->
+    {% if user.is_authenticated %}
+        <div class="review-form-container">
+            <h3>리뷰 작성</h3>
+            <form action="{% url 'games:review_create' game_pk=game.pk %}" method="POST">
+                {% csrf_token %}
+                {{ review_form.as_p }}
+                <button type="submit" class="btn btn-primary">리뷰 등록</button>
+            </form>
+        </div>
+    {% else %}
+        <p class="login-prompt">
+            <a href="{% url 'accounts:login' %}?next={{ request.path }}">로그인</a> 후 리뷰를 작성할 수 있습니다.
+        </p>
+    {% endif %}
+    
+    <!-- 리뷰 목록 -->
+    <div class="review-list">
+        {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="author">{{ review.author.username }}</span>
+                    <span class="rating">{{ review.get_rating_display }}</span>
+                    <time class="date">{{ review.created_at|date:"Y-m-d H:i" }}</time>
+                </div>
+                
+                <div class="review-content">
+                    <p>{{ review.content|linebreaks }}</p>
+                </div>
+                
+                {% if review.playtime_hours %}
+                    <div class="playtime">
+                        🕐 플레이 시간: {{ review.playtime_hours }}시간
+                    </div>
+                {% endif %}
+                
+                <!-- 본인 리뷰만 삭제 버튼 표시 -->
+                {% if user == review.author %}
+                    <form action="{% url 'games:review_delete' game_pk=game.pk review_pk=review.pk %}" 
+                          method="POST" 
+                          class="delete-review-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">삭제</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="no-reviews">아직 리뷰가 없습니다. 첫 리뷰를 작성해보세요!</p>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="back-link">
+    <a href="{% url 'games:index' %}">← 목록으로 돌아가기</a>
+</div>
+{% endblock %}

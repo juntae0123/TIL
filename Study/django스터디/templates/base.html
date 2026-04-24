@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko"># HTML5 문서 유형 선언 및 한국어 설정
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# 반응형 웹 디자인을 위한 뷰포트 설정 (모바일 친화적) #}
+    <title>{% block title %}GameLog{% endblock %}</title>
+    {# 페이지별로 고유한 제목을 설정할 수 있도록 title 블록 정의 (기본값은 'GameLog') #}
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {# 정적 파일 로드 (CSS 스타일시트 연결) #}
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar"> {# 사이트 로고 및 네비게이션 바 #}
+            <a href="{% url 'games:index' %}" class="logo">🎮 GameLog</a>
+            {# 사이트 로고 (게임 컨트롤러 이모지 + 사이트명), 클릭 시 게임 목록 페이지로 이동 #}
+
+            <div class="nav-links">
+                {% if user.is_authenticated %}
+                    <span class="user-info">{{ user.username }}님</span>
+                    <form action="{% url 'accounts:logout' %}" method="POST" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link">로그아웃</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="btn btn-link">로그인</a>
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-outline">회원가입</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 GameLog. Django Study Project.</p>
+        </div>
+    </footer>
+</body>
+</html>

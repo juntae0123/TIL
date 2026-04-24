@@ -1,0 +1,67 @@
+[
+    {
+        "model": "games.review",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "author": 2,
+            "rating": 5,
+            "content": "인생 게임입니다. 프롬소프트웨어의 최고작이라고 생각해요. 오픈월드와 소울라이크의 완벽한 조합!",
+            "playtime_hours": 150,
+            "created_at": "2024-01-10T10:00:00Z",
+            "updated_at": "2024-01-10T10:00:00Z"
+        }
+    },
+    {
+        "model": "games.review",
+        "pk": 2,
+        "fields": {
+            "game": 1,
+            "author": 3,
+            "rating": 4,
+            "content": "난이도가 높지만 클리어했을 때의 성취감이 대단합니다. 다만 중반부 보스 밸런스는 조금 아쉬워요.",
+            "playtime_hours": 80,
+            "created_at": "2024-01-11T14:30:00Z",
+            "updated_at": "2024-01-11T14:30:00Z"
+        }
+    },
+    {
+        "model": "games.review",
+        "pk": 3,
+        "fields": {
+            "game": 2,
+            "author": 2,
+            "rating": 5,
+            "content": "전작보다 더 자유로워진 게임플레이. 울트라핸드로 뭐든 만들 수 있는 게 너무 재밌어요!",
+            "playtime_hours": 200,
+            "created_at": "2024-01-12T09:00:00Z",
+            "updated_at": "2024-01-12T09:00:00Z"
+        }
+    },
+    {
+        "model": "games.review",
+        "pk": 4,
+        "fields": {
+            "game": 3,
+            "author": 3,
+            "rating": 5,
+            "content": "CRPG의 새로운 기준을 세운 작품. 선택의 무게감이 어마어마합니다. 2회차도 완전히 다른 경험이에요.",
+            "playtime_hours": 120,
+            "created_at": "2024-01-13T16:00:00Z",
+            "updated_at": "2024-01-13T16:00:00Z"
+        }
+    },
+    {
+        "model": "games.review",
+        "pk": 5,
+        "fields": {
+            "game": 4,
+            "author": 2,
+            "rating": 4,
+            "content": "해리포터 팬이라면 무조건 해야 할 게임. 호그와트 구석구석을 탐험하는 재미가 있어요.",
+            "playtime_hours": 45,
+            "created_at": "2024-01-14T11:00:00Z",
+            "updated_at": "2024-01-14T11:00:00Z"
+        }
+    }
+]

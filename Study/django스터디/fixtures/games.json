@@ -1,0 +1,72 @@
+[
+    {
+        "model": "games.game",
+        "pk": 1,
+        "fields": {
+            "title": "엘든링 (Elden Ring)",
+            "genre": "액션 RPG",
+            "description": "프롬소프트웨어와 조지 R.R. 마틴이 협업한 오픈월드 액션 RPG. 광활한 세계를 탐험하며 강력한 보스들과 맞서 싸우세요.",
+            "release_date": "2022-02-25",
+            "metacritic_score": 96,
+            "cover_image": "",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 2,
+        "fields": {
+            "title": "젤다의 전설: 티어스 오브 더 킹덤",
+            "genre": "액션 어드벤처",
+            "description": "하이랄 왕국의 하늘 위로 펼쳐진 새로운 모험. 창의적인 능력을 활용해 퍼즐을 풀고 세계를 탐험하세요.",
+            "release_date": "2023-05-12",
+            "metacritic_score": 96,
+            "cover_image": "",
+            "created_at": "2024-01-02T00:00:00Z",
+            "updated_at": "2024-01-02T00:00:00Z"
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 3,
+        "fields": {
+            "title": "발더스 게이트 3",
+            "genre": "턴제 RPG",
+            "description": "D&D 5판을 기반으로 한 턴제 RPG. 선택에 따라 달라지는 스토리와 깊이 있는 캐릭터 빌드를 경험하세요.",
+            "release_date": "2023-08-03",
+            "metacritic_score": 96,
+            "cover_image": "",
+            "created_at": "2024-01-03T00:00:00Z",
+            "updated_at": "2024-01-03T00:00:00Z"
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 4,
+        "fields": {
+            "title": "호그와트 레거시",
+            "genre": "액션 RPG",
+            "description": "1800년대 호그와트를 배경으로 한 오픈월드 RPG. 마법사가 되어 마법 세계의 비밀을 밝혀내세요.",
+            "release_date": "2023-02-10",
+            "metacritic_score": 84,
+            "cover_image": "",
+            "created_at": "2024-01-04T00:00:00Z",
+            "updated_at": "2024-01-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "games.game",
+        "pk": 5,
+        "fields": {
+            "title": "스타필드",
+            "genre": "오픈월드 RPG",
+            "description": "베데스다의 우주 탐험 RPG. 1000개 이상의 행성을 탐험하며 우주의 신비를 풀어가세요.",
+            "release_date": "2023-09-06",
+            "metacritic_score": 83,
+            "cover_image": "",
+            "created_at": "2024-01-05T00:00:00Z",
+            "updated_at": "2024-01-05T00:00:00Z"
+        }
+    }
+]
