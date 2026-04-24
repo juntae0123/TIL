@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block css %}
+    <style>
+        color: red;
+    </style>
+{% endblock css %}
+
+{% block content %}
+    <h1>Article</h1>
+    <hr>
+    {% for article in articles %}
+    <div>
+        <p>글 번호: {{ article.pk }}</p>
+        <p>글 제목: {{ article.title }}</p>
+        <p>글 내용: {{ article.content }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+    {% endblock content %}
