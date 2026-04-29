@@ -1,0 +1,15 @@
+{% for author in authors %}
+  <p><a href="{% url 'libraries:detail' author.pk %}">{{ author.name }}</a></p>
+{% endfor %}
+
+<h1>{{ author.name }}의 정보</h1>
+<p>별명: {{ author.nickname }}</p>
+<hr>
+<h3>집필한 도서 목록</h3>
+<ul>
+  {% for book in author.book_set.all %}
+    <li>{{ book.title }}</li>
+  {% empty %}
+    <li>등록된 도서가 없습니다.</li>
+  {% endfor %}
+</ul>
