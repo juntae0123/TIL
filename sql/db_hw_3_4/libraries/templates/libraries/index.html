@@ -1,0 +1,10 @@
+<h1>저자 전체 목록</h1>
+<hr>
+{% for author in authors %}
+  <ul>
+    <li><a href="{% url 'libraries:detail' author.pk %}">이름 : {{ author.name }}</a></li>
+    <li>국적 : {{ author.nationality }}</li>
+    <li>집필 권 수: {{ author.book_set.count }} 권</li>
+  </ul>
+  <hr>
+{% endfor %}
