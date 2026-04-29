@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'diaries/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+  <h1>Diary List</h1>
+  <hr>
+
+  {% for diary in diaries %}
+    <article class="diary-unit">
+      <h2>{{ diary.title }}</h2>
+      
+      {% if diary.picture %}
+        <img src="{{ diary.picture.url }}" alt="diary-photo" width="300">
+      {% endif %}
+      
+      <p>{{ diary.content }}</p>
+
+      <hr>
+
+      <section class="comment-section">
+        <h4>Comments</h4>
+        <ul>
+          {% for comment in diary.comment_set.all %}
+            <li>{{ comment.content }}</li>
+          {% empty %}
+            <li>작성된 댓글이 없습니다.</li>
+          {% endfor %}
+        </ul>
+
+        <form action="#" method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" name="content" placeholder="댓글을 입력하세요" required>
+            <button type="submit">작성</button>
+          </div>
+        </form>
+      </section>
+    </article>
+    <hr>
+  {% endfor %}
+{% endblock content %}
